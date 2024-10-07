@@ -26,7 +26,7 @@ export function TasksColumn({ className, title, tasks }: TasksColumnProps) {
             ? "bg-peach-200"
             : title === "In progress"
             ? "bg-cream-300"
-            : "bg-dndGreen-300"
+            : "bg-__green-300"
         }`}
       >
         <h1 className="text-2xl font-bold text-center w-full text-primary-600">

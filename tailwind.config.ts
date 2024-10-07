@@ -41,7 +41,7 @@ export default {
 					800: '#F8DE4F',
 					900: '#F7D938',
 				},
-				dndGreen: {
+				__green: {
 					50: '#F0F9F3',
 					100: '#E1F3E7',
 					200: '#C3E7CF',
@@ -52,6 +52,15 @@ export default {
 					700: '#2A8C47',
 					800: '#1A7A33',
 					900: '#0A671F',
+				},
+				__white: {
+					50: '#FFFFFF',
+					100: '#FAFAFA',
+					200: '#F5F5F5',
+					300: '#F0F0F0',
+					400: '#DEDEDE',
+					500: '#C2C2C2',
+					600: '#979797',
 				},
 			},
 			fontFamily: {

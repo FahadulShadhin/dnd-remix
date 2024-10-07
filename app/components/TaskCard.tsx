@@ -27,7 +27,7 @@ export function TaskCard({
 
   return (
     <div
-      className={`${className} p-4 rounded-md shadow-lg cursor-grab border border-primary-50`}
+      className={`${className} p-4 rounded-md cursor-grab shadow-md bg-__white-200`}
       draggable="true"
       onDragStart={(e) => onDragStart(e, id)}
     >
@@ -51,7 +51,7 @@ export function TaskCard({
         className={`overflow-hidden transition-all duration-300 ease-in-out`}
         style={{ maxHeight: isExpanded ? `${contentHeight + 10}px` : "0" }}
       >
-        <p ref={contentRef} className="text-md text-primary-500 mt-2">
+        <p ref={contentRef} className="text-md text-primary-600 mt-2">
           {description}
         </p>
       </div>
