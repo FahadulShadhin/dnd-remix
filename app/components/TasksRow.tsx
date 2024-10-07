@@ -30,7 +30,7 @@ export function TasksRow({ className, title, tasks }: TasksRowProps) {
         }`}
       >
         <h1 className="text-2xl font-bold text-center w-full text-primary-600">
-          {title}
+          {title} ({tasks.length})
         </h1>
       </div>
       <div className="flex flex-col gap-4">
