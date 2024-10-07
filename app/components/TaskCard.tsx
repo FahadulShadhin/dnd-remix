@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 interface TaskCardProps {
   className?: string;
   title: string;
@@ -11,8 +13,7 @@ export function TaskCard({
   description,
   status,
 }: TaskCardProps) {
-  const transformedDescription =
-    description.length > 100 ? description.slice(0, 100) + "..." : description;
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div
@@ -22,15 +23,34 @@ export function TaskCard({
           : status === "in progress"
           ? "bg-cream-300"
           : "bg-dndGreen-300"
-      } rounded-md shadow-md cursor-pointer`}
+      } rounded-md shadow-md cursor-grab`}
     >
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-bold text-primary-600">{title}</h2>
-        <div className="cursor-grab">
-          <img src="icons/drag.svg" alt="Drag icon" width={20} height={20} />
-        </div>
+        <button
+          className="cursor-pointer focus:outline-none"
+          onClick={() => setIsExpanded(!isExpanded)}
+        >
+          {isExpanded ? (
+            <img
+              src="icons/chevron-up.svg"
+              alt="Drag icon"
+              width={15}
+              height={15}
+            />
+          ) : (
+            <img
+              src="icons/chevron-down.svg"
+              alt="Drag icon"
+              width={15}
+              height={15}
+            />
+          )}
+        </button>
       </div>
-      <p className="text-sm text-primary-500">{transformedDescription}</p>
+      {isExpanded && (
+        <p className="text-md text-primary-500">{description}</p>
+      )}
     </div>
   );
 }
