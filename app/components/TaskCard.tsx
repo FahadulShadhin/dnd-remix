@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 interface TaskCardProps {
   className?: string;
   title: string;
