@@ -48,9 +48,7 @@ export function TaskCard({
           )}
         </button>
       </div>
-      {isExpanded && (
-        <p className="text-md text-primary-500">{description}</p>
-      )}
+      {isExpanded && <p className="text-md text-primary-500">{description}</p>}
     </div>
   );
 }
