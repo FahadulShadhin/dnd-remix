@@ -4,7 +4,7 @@ import { TasksColumn } from "~/components/TasksColumn";
 export default function Index() {
   return (
     <div className="bg-white">
-      <div className="flex flex-col md:flex-row h-screen gap-4 max-w-7xl mx-auto p-4">
+      <div className="flex flex-col md:flex-row h-screen max-w-7xl mx-auto p-4">
         <TasksColumn
           className="flex-1"
           title="To do"
