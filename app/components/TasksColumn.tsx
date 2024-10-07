@@ -7,13 +7,13 @@ interface Task {
   id: number;
 }
 
-interface TasksRowProps {
+interface TasksColumnProps {
   className?: string;
   title: string;
   tasks: Task[];
 }
 
-export function TasksRow({ className, title, tasks }: TasksRowProps) {
+export function TasksColumn({ className, title, tasks }: TasksColumnProps) {
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>, id: number) => {
     e.dataTransfer.setData("text/plain", id.toString());
   };
