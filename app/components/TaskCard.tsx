@@ -5,6 +5,8 @@ interface TaskCardProps {
   title: string;
   description: string;
   status: string;
+  id: number;
+  onDragStart: (e: React.DragEvent<HTMLDivElement>, id: number) => void;
 }
 
 export function TaskCard({
@@ -12,18 +14,16 @@ export function TaskCard({
   title,
   description,
   status,
+  id,
+  onDragStart,
 }: TaskCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div
-      className={`${className} p-4 ${
-        status === "to do"
-          ? "bg-peach-200"
-          : status === "in progress"
-          ? "bg-cream-300"
-          : "bg-dndGreen-300"
-      } rounded-md shadow-md cursor-grab`}
+      className={`${className} p-4 rounded-md shadow-lg cursor-grab border border-primary-50`}
+      draggable="true"
+      onDragStart={(e) => onDragStart(e, id)}
     >
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-bold text-primary-600">{title}</h2>

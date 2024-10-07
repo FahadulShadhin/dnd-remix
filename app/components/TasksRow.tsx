@@ -4,6 +4,7 @@ interface Task {
   title: string;
   description: string;
   status: string;
+  id: number;
 }
 
 interface TasksRowProps {
@@ -13,9 +14,21 @@ interface TasksRowProps {
 }
 
 export function TasksRow({ className, title, tasks }: TasksRowProps) {
+  const handleDragStart = (e: React.DragEvent<HTMLDivElement>, id: number) => {
+    e.dataTransfer.setData("text/plain", id.toString());
+  };
+
   return (
     <div className={`${className} p-4`}>
-      <div className="flex justify-between items-center pb-4">
+      <div
+        className={`flex justify-between items-center p-4 mb-4 rounded-md shadow-md ${
+          title === "To do"
+            ? "bg-peach-200"
+            : title === "In progress"
+            ? "bg-cream-300"
+            : "bg-dndGreen-300"
+        }`}
+      >
         <h1 className="text-2xl font-bold text-center w-full text-primary-600">
           {title}
         </h1>
@@ -24,9 +37,11 @@ export function TasksRow({ className, title, tasks }: TasksRowProps) {
         {tasks.map((task, index) => (
           <TaskCard
             key={index}
+            id={task.id}
             title={task.title}
             description={task.description}
             status={task.status}
+            onDragStart={handleDragStart}
           />
         ))}
       </div>
