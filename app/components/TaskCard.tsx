@@ -38,7 +38,11 @@ export function TaskCard({
           className="cursor-pointer focus:outline-none transition-transform duration-300 ease-in-out"
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          <FaChevronUp className={`transform ${isExpanded ? "rotate-0" : "rotate-180"} text-primary-600`} />
+          <FaChevronUp
+            className={`transform ${
+              isExpanded ? "rotate-0" : "rotate-180"
+            } text-primary-600`}
+          />
         </button>
       </div>
 

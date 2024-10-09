@@ -1,6 +1,7 @@
 import { tasksData } from "~/data/tasks";
 import { TasksColumn } from "~/components/TasksColumn";
 import { useState } from "react";
+import { Task } from "~/types/task";
 
 export default function Index() {
   const [activeTask, setActiveTask] = useState<number | null>(null);
@@ -20,6 +21,10 @@ export default function Index() {
     setTasks(updatedTasks);
   };
 
+  const handleAddTask = (newTask: Task) => {
+    setTasks([...tasks, {...newTask, id: Date.now()}]);
+  };
+
   return (
     <div className="bg-white">
       <div className="flex flex-col md:flex-row h-screen max-w-7xl mx-auto p-4">
@@ -29,6 +34,7 @@ export default function Index() {
           tasks={tasks}
           setActiveTask={setActiveTask}
           onDrop={handleOnDrop}
+          onAddTask={handleAddTask}
         />
         <TasksColumn
           className="flex-1"
@@ -36,6 +42,7 @@ export default function Index() {
           tasks={tasks}
           setActiveTask={setActiveTask}
           onDrop={handleOnDrop}
+          onAddTask={handleAddTask}
         />
         <TasksColumn
           className="flex-1"
@@ -43,6 +50,7 @@ export default function Index() {
           tasks={tasks}
           setActiveTask={setActiveTask}
           onDrop={handleOnDrop}
+          onAddTask={handleAddTask}
         />
       </div>
     </div>
