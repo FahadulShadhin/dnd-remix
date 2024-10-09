@@ -75,7 +75,7 @@ export function TasksColumn({
             className="bg-__white-100 text-primary-600 rounded-md w-full p-4 flex items-center justify-center gap-2 hover:bg-__white-200 transition-all duration-300 ease-in-out"
             onClick={() => setShowForm(true)}
           >
-            Add Task
+            Add
             <IoIosAddCircleOutline className="text-primary-600 text-xl" />
           </button>
         )}

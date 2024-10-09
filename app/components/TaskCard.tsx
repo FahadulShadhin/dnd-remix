@@ -27,7 +27,7 @@ export function TaskCard({
 
   return (
     <div
-      className={`${className} p-4 rounded-md cursor-grab shadow-md bg-__white-200 active:opacity-50`}
+      className={`${className} p-4 rounded-md cursor-grab shadow-md bg-__white-200 active:cursor-grabbing active:opacity-50`}
       draggable="true"
       onDragStart={() => setActiveTask(index)}
       onDragEnd={() => setActiveTask(null)}
