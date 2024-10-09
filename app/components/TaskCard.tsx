@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { FaChevronUp } from "react-icons/fa";
 
 interface TaskCardProps {
   className?: string;
@@ -37,13 +38,7 @@ export function TaskCard({
           className="cursor-pointer focus:outline-none transition-transform duration-300 ease-in-out"
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          <img
-            src={"icons/chevron-up.svg"}
-            alt="Toggle description"
-            width={15}
-            height={15}
-            className={`transform ${isExpanded ? "rotate-0" : "rotate-180"}`}
-          />
+          <FaChevronUp className={`transform ${isExpanded ? "rotate-0" : "rotate-180"}`} />
         </button>
       </div>
 
