@@ -5,18 +5,15 @@ interface TaskCardProps {
   title: string;
   description: string;
   status: string;
-  id: number;
-  onDragStart: (e: React.DragEvent<HTMLDivElement>, id: number) => void;
-  setActiveTask: (taskId: number | null) => void;
+  index: number;
+  setActiveTask: (index: number | null) => void;
 }
 
 export function TaskCard({
   className,
   title,
   description,
-  status,
-  id,
-  onDragStart,
+  index,
   setActiveTask,
 }: TaskCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -31,13 +28,8 @@ export function TaskCard({
     <div
       className={`${className} p-4 rounded-md cursor-grab shadow-md bg-__white-200 active:opacity-50`}
       draggable="true"
-      onDragStart={(e) => {
-        onDragStart(e, id);
-        setActiveTask(id);
-      }}
-      onDragEnd={(e) => {
-        setActiveTask(null);
-      }}
+      onDragStart={() => setActiveTask(index)}
+      onDragEnd={() => setActiveTask(null)}
     >
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-bold text-primary-600">{title}</h2>

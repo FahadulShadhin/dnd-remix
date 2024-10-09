@@ -1,14 +1,21 @@
 import { useState } from "react";
 
-export function CardDropArea() {
-  const [showDropArea, setShowDropArea] = useState(false);
+interface CardDropAreaProps {
+  onDrop: () => void;
+}
 
-  console.log(showDropArea);
+export function CardDropArea({ onDrop }: CardDropAreaProps) {
+  const [showDropArea, setShowDropArea] = useState(false);
 
   return (
     <div
       onDragEnter={() => setShowDropArea(true)}
       onDragLeave={() => setShowDropArea(false)}
+      onDrop={() => {
+        onDrop();
+        setShowDropArea(false);
+      }}
+      onDragOver={(e) => e.preventDefault()}
       className={`${
         showDropArea
           ? `opacity-100 mt-4 mb-4 w-full h-[100px]`

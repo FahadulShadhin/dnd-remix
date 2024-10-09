@@ -1,4 +1,4 @@
-export const tasks = [
+export const tasksData = [
   {
     id: 1,
     title: "Design new landing page",
